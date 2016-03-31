@@ -13,12 +13,11 @@
     </header>
       <main>
         <section id="write">
-        <h1>New First 5</h1>
+        <h1>New First 5:</h1>
           <form action="#" id="new-form">
             <label>
               <input type="text" id="isbn" placeholder="ISBN" required>
             </label>
-            <textarea id="email-intro" rows="8" cols="40" placeholder="Email Intro"required></textarea>
             <label>
               <input type="text" id="author-name" placeholder="Author Name" required>
             </label>
@@ -40,10 +39,29 @@
             <label>
               <input type="text" class="chapter" id="chapter-five-title" placeholder="Chapter 5 Title" required>
             </label>
-            <label>
-              <button type="button" id="process-button">Process</button> 
-            </label>
           </form>
+        </section>
+        <section id="upload-section">
+          <textarea id="email-intro" rows="8" cols="40" placeholder="Email Intro"required></textarea>
+          <ul>
+            <li>Chapter 1 File</li>
+            <input class="upload-button" type="submit" value="upload">
+            <br>
+            <li>Chapter 2 File</li>
+            <input class="upload-button" type="submit" value="upload">
+            <br>
+            <li>Chapter 3 File</li>
+            <input class="upload-button" type="submit" value="upload">
+            <br>
+            <li>Chapter 4 File</li>
+            <input class="upload-button" type="submit" value="upload">
+            <br>
+            <li>Chapter 5 File</li>
+            <input class="upload-button" type="submit" value="upload">
+          </ul>
+          <label>
+            <button type="button" id="process-button">Process</button>
+          </label>
         </section>
       </main>
   </body>
