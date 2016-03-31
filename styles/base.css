@@ -1,9 +1,41 @@
 header {
   background-color: black;
   text-align: center;
+  border-style: ridge;
+  min-width: 10%;
 }
 
 img {
-  max-width: 13%;
+  max-width: 10%;
   margin: 0 auto;
+  margin-left: -3rem;
+}
+
+main {
+  margin: auto;
+  width: 95%;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+input {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-width: 0 0 1px 0;
+}
+
+textarea {
+  display: block;
+  width: 50%;
+}
+
+button {
+  display: block;
+}
+
+.chapter {
+  font-style: italic;
+  font-size: 1rem;
 }
