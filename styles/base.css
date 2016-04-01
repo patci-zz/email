@@ -45,6 +45,7 @@ input {
 }
 
 .chapter {
+  height: 1.5rem;
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -54,13 +55,13 @@ input {
 textarea {
   display: block;
   resize: none;
-  margin-left: 12%;
+  margin-left: 18%;
   margin-bottom: 4.3rem;
   width: 70%;
   border: 1px solid #0CF;
 }
 
-#upload-section {
+#right-column-container {
   margin-top: 3rem;
   text-align: center;
   position: absolute;
@@ -74,24 +75,17 @@ ul {
   margin-top: 4.8rem;
 }
 
-li {
-  cursor: pointer;
-  margin-bottom: .18rem;
-  list-style: none;
-  display: inline-block;
-  font-style: italic;
-}
-
-li #5 {
-  margin-bottom: 0;
-}
-
 .upload-button {
-  padding-right: 3.5rem;
-  display: inline-block;
-  background-color: #0CF;
-  border-radius: 8%;
-  margin-left: .5rem;
+  margin-top: 5px;
+  width: 17%;
+  padding-right: 3rem;
+  display: block;
+  margin-left: 35%;
+  cursor: pointer;
+}
+
+#chap-five {
+  margin-top: 7px;
 }
 
 #process-button {
@@ -102,5 +96,6 @@ li #5 {
   font-size: 1.5rem;
   margin: 0 auto;
   margin-top: 3rem;
+  margin-left: 30%;
 }
 /*-----------------------*/
