@@ -9,6 +9,7 @@
   "author": "rpatci@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mammoth": "^0.3.33"
   }
 }

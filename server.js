@@ -1,9 +1,10 @@
 var express = require('express'),
-  port = process.env.PORT || 3000,
-  app = express();
+    port = process.env.PORT || 3000,
+    app = express();
 
 var fs = require('fs');
 var path = require('path');
+
 
 app.use(express.static('./'));
 

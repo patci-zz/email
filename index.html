@@ -13,7 +13,7 @@
       <img src="vendor/img/header.jpg" alt="Epic Reads"/>
     </header>
       <main>
-        <section id="write">
+        <section class="form" id="write">
         <h1>New First 5:</h1>
           <form action="#" id="new-form">
             <label>
@@ -42,9 +42,9 @@
             </label>
           </form>
         </section>
-        <section id="right-column-container">
+        <section class="form" id="right-column-container">
           <textarea id="email-intro" rows="8" cols="40" placeholder="Email Intro" required></textarea>
-          <div class="upload-section">
+          <div class="buttons">
             <input class="upload-button" id="chap-one" type="file" value="upload">
             <input class="upload-button" id="chap-two" type="file" value="upload">
             <input class="upload-button" id="chap-three" type="file" value="upload">
@@ -52,11 +52,11 @@
             <input class="upload-button" id="chap-five" type="file" value="upload">
           </div>
           <label>
-            <button type="button" id="process-button">Load HTML</button>
+            <button type="button" id="process-button">HTML</button>
           </label>
         </section>
       </main>
       <script src="vendor/scripts/jquery-2.1.4.js"></script>
-      <script src="scripts/viewController.js"></script>
+      <script src="scripts/uploadController.js"></script>
   </body>
 </html>
