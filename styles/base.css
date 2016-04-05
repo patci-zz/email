@@ -92,6 +92,11 @@ textarea {
   display: block;
   margin-left: 5%;
   border: none;
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+    cursor:pointer;
 }
 
 #process-button {
