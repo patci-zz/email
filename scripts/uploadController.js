@@ -1,22 +1,5 @@
-// (function(module) {
+(function(module) {
   var uploadController = {};
-
-  function passwordProtect() {
-    var password = prompt("This site is password protected");
-    switch(password) {
-      case null:
-      return;
-    };
-    switch(isNaN(parseInt(prompt1))) {
-      case true:
-      promptMe();
-      break;
-      default:
-      document.getElementById("promptOutput").innerHTML = prompt1;
-      break;
-    };
-  }
-  //var password = prompt('This site is password protected:');
 
 // As the user fills out form, cache the inputs
   $('.form').on('change', uploadController.cacheUserInput);
@@ -39,5 +22,5 @@
       // TODO: call mammoth to convert DOCX file passed in
     });
 
-  // module.uploadController = uploadController;
-// })(window);
+  module.uploadController = uploadController;
+})(window);
