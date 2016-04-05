@@ -1,5 +1,4 @@
 // (function(module) {
-  var mammoth = require('mammoth');
   var uploadController = {};
 
   function passwordProtect() {
