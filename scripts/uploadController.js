@@ -1,27 +1,39 @@
-(function (module) {
+$(() => {
   const uploadController = {};
 
-  // As the user fills out form, cache the inputs
-  $('.form').on('change', uploadController.cacheUserInput);
+  // Upload a file and its metadata to the server to be converted
+  uploadController.uploadFile = function (file, metadata) {
+    // Create formdata
+    const data = new FormData();
 
-  // We can access these values anytime (ex: `uploadController.cacheUserInput().isbn`)
-  uploadController.cacheUserInput = function () {
-    return {
-      isbn: $('#isbn').val(),
-      authorName: $('#author-name').val(),
-      bookTitle: $('#book-title').val(),
-      chapterOneTitle: $('#chapter-one-title').val(),
-      chapterTwoTitle: $('#chapter-two-title').val(),
-      chapterThreeTitle: $('#chapter-three-title').val(),
-      chapterFourTitle: $('#chapter-four-title').val(),
-      chapterFiveTitle: $('#chapter-five-title').val(),
-      emailIntro: $('textarea').val(),
-    };
+    // Add file to data
+    data.set('data', file);
+
+    // Add metadata
+    for (const key in metadata) { // eslint-disable-line
+      if (metadata.hasOwnProperty(key)) {
+        data.set(key, metadata[key]);
+      }
+    }
+
+    // Send it to the server
+    $.ajax({
+      type: 'POST',
+      url: '/convert_file',
+      data: data,
+      processData: false,
+      contentType: false,
+    }).done((response) => {
+      console.log(response);
+    });
   };
 
-  $('.upload-button').on('change', () => {
-    // TODO: call mammoth to convert DOCX file passed in
+  $('#chap-one').change(function () {
+    uploadController.uploadFile(this.files[0], {
+      test: 'haha',
+    });
   });
 
-  module.uploadController = uploadController;
-}(window));
+  $('#process-button').click(() => {
+  });
+});

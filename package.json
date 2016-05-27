@@ -4,7 +4,7 @@
   "description": "Email template",
   "main": "server.js",
   "scripts": {
-    "dev": "node-dev server.js",
+    "dev": "node-dev --no-notify server.js",
     "lint": "eslint server.js scripts/*.js"
   },
   "author": "rpatci@gmail.com",
@@ -12,7 +12,8 @@
   "dependencies": {
     "basic-auth": "^1.0.3",
     "express": "^4.13.4",
-    "mammoth": "^0.3.33"
+    "mammoth": "^0.3.33",
+    "multer": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^2.10.2",
