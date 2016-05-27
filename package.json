@@ -4,8 +4,8 @@
   "description": "Email template",
   "main": "server.js",
   "scripts": {
-    "dev": "node-dev --no-notify server.js",
-    "lint": "eslint server.js scripts/*.js"
+    "dev": "node-dev --no-notify back/server.js",
+    "lint": "eslint back/*.js front/scripts/*.js"
   },
   "author": "rpatci@gmail.com",
   "license": "ISC",
