@@ -5,10 +5,10 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 
-const auth = require('./auth.js');
+const auth = require('./back/auth.js');
 
 app.use(auth);
-app.use(express.static('./'));
+app.use(express.static('./front/'));
 
 app.post('/convert_file', upload.single('data'), (req, res) => {
   console.log(req.body, req.file);
