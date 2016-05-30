@@ -7,7 +7,7 @@ const admins = {
 module.exports = function (req, res, next) {
   const user = auth(req);
   if (!user || !admins[user.name] || admins[user.name].password !== user.pass) {
-    res.set('WWW-Authenticate', 'Basic realm="example"');
+    res.set('WWW-Authenticate', 'Basic realm="Conversion"');
     return res.status(401).send();
   }
   return next();

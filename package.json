@@ -2,7 +2,7 @@
   "name": "email-templating",
   "version": "0.0.1",
   "description": "Email template",
-  "main": "server.js",
+  "main": "back/server.js",
   "scripts": {
     "dev": "node-dev --no-notify back/server.js",
     "lint": "eslint back/*.js front/scripts/*.js"
