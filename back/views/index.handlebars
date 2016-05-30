@@ -72,45 +72,10 @@
 
       <hr>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="fluid-container">
-            <div class="row">
-              <form class="form">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="chapter1TitleInput"
-                      placeholder="Chapter 1 Title"
-                    >
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <input
-                    type="file"
-                    class="form-control"
-                    id="chapter1FileInput"
-                    >
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <button
-                      class="btn btn-success"
-                      id="chapter1Submit"
-                      >HTML</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{! Add five chapter inputs !}}
+      {{#each chapters}}
+        {{> chapterInput number=this }}
+      {{/each}}
     </div>
 
     <script src="vendor/scripts/jquery-2.1.4.js"></script>
