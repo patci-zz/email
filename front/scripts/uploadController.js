@@ -28,12 +28,14 @@ $(() => {
     });
   };
 
-  $('#chap-one').change(function () {
-    uploadController.uploadFile(this.files[0], {
-      test: 'haha',
-    });
-  });
+  // Disable chapter upload unless metadata is complete
+  const metadataInputs = $('#metadata :input');
+  metadataInputs.keyup(() => {
+    // Check all the inputs for text
+    const metadataFilledIn = metadataInputs.toArray()
+      .every((el) => $(el).val() !== '');
 
-  $('#process-button').click(() => {
+    $('#chapterInputFieldset').attr('disabled', !metadataFilledIn);
+    $('#errorMessage').css('display', metadataFilledIn ? 'none' : '');
   });
 });

@@ -24,58 +24,68 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <form>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="isbnInput"
-                placeholder="ISBN"
-              >
+      <div class="row" id="metadata">
+        <form>
+          <fieldset>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="isbnInput"
+                  placeholder="ISBN"
+                >
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="authorInput"
+                  placeholder="Author Name"
+                >
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookInput"
+                  placeholder="Book Title"
+                >
+              </div>
             </div>
 
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="authorInput"
-                placeholder="Author Name"
-              >
+            <div class="col-sm-6">
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  id="emailIntroInput"
+                  placeholder="Email Intro"
+                  rows="6"
+                ></textarea>
+              </div>
             </div>
-
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="bookInput"
-                placeholder="Book Title"
-              >
-            </div>
-          </form>
-        </div>
-
-        <div class="col-sm-6">
-          <form>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                id="emailIntroInput"
-                placeholder="Email Intro"
-                rows="6"
-              ></textarea>
-            </div>
-          </form>
-        </div>
+          </fieldset>
+        </form>
       </div>
 
       <hr>
 
-      {{! Add five chapter inputs !}}
-      {{#each chapters}}
-        {{> chapterInput number=this }}
-      {{/each}}
+      <div class="row" id="errorMessage">
+        <div class="col-sm-12">
+          <div class="alert alert-danger" role="alert">You must fill in metadata before you upload chapters!</div>
+        </div>
+      </div>
+
+      <form>
+        <fieldset id="chapterInputFieldset" disabled>
+          {{! Add five chapter inputs !}}
+          {{#each chapters}}
+            {{> chapterInput number=this }}
+          {{/each}}
+        </fieldset>
+      </form>
     </div>
 
     <script src="vendor/scripts/jquery-2.1.4.js"></script>
