@@ -20,7 +20,7 @@ $(() => {
     $.ajax({
       type: 'POST',
       url: '/convert_file',
-      data: data,
+      data,
       processData: false,
       contentType: false,
     }).done((response) => {

@@ -55,7 +55,6 @@
             </div>
           </form>
         </div>
-
         <div class="col-sm-6">
           <form>
             <div class="form-group">
@@ -69,9 +68,7 @@
           </form>
         </div>
       </div>
-
       <hr>
-
       <div class="row">
         <div class="col-sm-12">
           <div class="fluid-container">
@@ -79,31 +76,52 @@
               <form class="form">
                 <div class="col-sm-4">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="chapter1TitleInput"
-                      placeholder="Chapter 1 Title"
-                    >
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-group">
+                    <label for="chapter1FileInput">
+                      Upload: Chapter 1
+                    </label>
                     <input
                     type="file"
-                    class="form-control"
+                    class="form-file"
                     id="chapter1FileInput"
                     >
+                    <label for="chapter2FileInput">
+                      Upload: Chapter 2
+                    </label>
+                    <input
+                    type="file"
+                    class="form-file"
+                    id="chapter2FileInput"
+                    >
+                    <label for="chapter3FileInput">
+                      Upload: Chapter 3
+                    </label>
+                    <input
+                    type="file"
+                    class="form-file"
+                    id="chapter3FileInput"
+                    >
+                    <label for="chapter4FileInput">
+                      Upload: Chapter 4
+                    </label>
+                    <input
+                    type="file"
+                    class="form-file"
+                    id="chapter4FileInput"
+                    >
+                    <label for="chapter5FileInput">
+                      Upload: Chapter 5
+                    </label>
+                    <input
+                    type="file"
+                    class="form-file"
+                    id="chapter5FileInput"
+                    >
                   </div>
-                </div>
-
-                <div class="col-sm-4">
                   <div class="form-group">
                     <button
                       class="btn btn-success"
-                      id="chapter1Submit"
-                      >HTML</button>
+                      id="chapterSubmit"
+                      >Submit</button>
                   </div>
                 </div>
               </form>
@@ -112,8 +130,8 @@
         </div>
       </div>
     </div>
-
     <script src="vendor/scripts/jquery-2.1.4.js"></script>
     <script src="scripts/uploadController.js"></script>
+    <script src="scripts/uploadView.js"></script>
   </body>
 </html>
