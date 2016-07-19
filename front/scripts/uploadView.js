@@ -6,7 +6,7 @@ $(() => {
       $(this).prev().text($(this).val());
     } else {
       const chapterNumber = $(this).attr('id').slice(7, 8);
-      $(this).prev().text(`Upload: Chapter ${chapterNumber}`);
+      $(this).prev().text(`Upload: Chapter ${chapterNumber} DOCX`);
     }
   };
 
