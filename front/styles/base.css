@@ -35,15 +35,16 @@ form .form-file {
   display: none;
 }
 
-.audio-input label {
-  cursor: default;
+input.audio-file {
+  width: 165px;
 }
 
 .chapter-box {
   text-align: center;
+  width: 30vh;
   border: 5px solid black;
   padding: 7px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #emailIntroInput {
