@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "Email template",
   "scripts": {
-    "start": "nw front/",
+    "start": "nw",
     "dev": "nodemon back/server.js --ext 'js,handlebars'",
     "lint": "eslint back/*.js front/scripts/*.js"
   },
+  "main": "front/index.html",
   "author": "rpatci@gmail.com",
   "license": "ISC",
   "dependencies": {
