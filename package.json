@@ -11,11 +11,8 @@
   "author": "rpatci@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "basic-auth": "^1.0.3",
-    "express": "^4.13.4",
     "handlebars": "^4.0.5",
-    "mammoth": "^0.3.33",
-    "multer": "^1.1.0"
+    "mammoth": "^0.3.33"
   },
   "devDependencies": {
     "eslint": "^2.10.2",
