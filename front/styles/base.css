@@ -17,6 +17,11 @@ h1 {
 label {
   cursor: pointer;
   display: block;
+  color: white;
+  padding: 5px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background: limegreen;
 }
 
 form.chapter-input {
