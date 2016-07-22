@@ -2,3 +2,4 @@ node_modules/
 .DS_Store/
 example_files/
 npm-debug.log
+env.sh
