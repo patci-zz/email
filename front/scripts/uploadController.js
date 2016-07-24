@@ -21,29 +21,33 @@ $(() => {
   };
 
   uploadController.readFileInput = function (event, callback) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = function (loadEvent) {
-      const arrayBuffer = loadEvent.target.result;
-      callback(arrayBuffer);
-    };
-    reader.readAsArrayBuffer(file);
+    if (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (loadEvent) {
+        const arrayBuffer = loadEvent.target.result;
+        callback(arrayBuffer);
+      };
+      reader.readAsArrayBuffer(file);
+    }
   };
 
   uploadController.outputResult = function (result) {
     console.log(result.value);
   };
 
-  $(document).ready(() => {
-    $('#chapter1FileInput').on('change', (event) => {
-      uploadController.readFileInput(event, (arrayBuffer) => {
-        mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+  uploadController.converter = function (arrayBuffer) {
+    mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
           .then(uploadController.outputResult)
           .done();
-      });
+  };
+
+  $(document).ready(() => {
+    $('#chapter1FileInput').on('change', (event) => {
+      uploadController.readFileInput(event, uploadController.converter);
     });
   });
-  
+
   // Disable chapter upload unless metadata is complete
   const metadataInputs = $('#metadata :input');
   metadataInputs.keyup(() => {
