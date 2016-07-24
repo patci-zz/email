@@ -1,3 +1,6 @@
+
+let ab;
+
 $(() => {
   const uploadController = {};
 
@@ -15,18 +18,35 @@ $(() => {
         data.set(key, metadata[key]);
       }
     }
-
-    // Send it to the server
-    $.ajax({
-      type: 'POST',
-      url: '/convert_file',
-      data,
-      processData: false,
-      contentType: false,
-    }).done((response) => {
-      console.log(response);
-    });
   };
+
+  uploadController.readFileInput = function (event, callback) {
+    if (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (loadEvent) {
+        const arrayBuffer = loadEvent.target.result;
+        callback(arrayBuffer);
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  };
+
+  uploadController.outputResult = function (result) {
+    console.log(result.value);
+  };
+
+  uploadController.converter = function (arrayBuffer) {
+    mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+          .then(uploadController.outputResult)
+          .done();
+  };
+
+  $(document).ready(() => {
+    $('#chapter1FileInput').on('change', (event) => {
+      uploadController.readFileInput(event, uploadController.converter);
+    });
+  });
 
   // Disable chapter upload unless metadata is complete
   const metadataInputs = $('#metadata :input');
