@@ -1,28 +1,56 @@
 
-let ab;
+
 
 $(() => {
   const uploadController = {};
+  uploadController.dayNumber = '';
+  uploadController.dailyData = [
+    {
+      body: '',
+      isbn: '',
+      author: '',
+      title: '',
+      videoLink: '',
+      emailIntro: '',
+    },
+    {
+      body: '',
+      isbn: '',
+      author: '',
+      title: '',
+      videoLink: '',
+      emailIntro: '',
+    },
+    {
+      body: '',
+      isbn: '',
+      author: '',
+      title: '',
+      videoLink: '',
+      emailIntro: '',
+    },
+    {
+      body: '',
+      isbn: '',
+      author: '',
+      title: '',
+      videoLink: '',
+      emailIntro: '',
+    },
+    {
+      body: '',
+      isbn: '',
+      author: '',
+      title: '',
+      videoLink: '',
+      emailIntro: '',
+    },
+  ];
 
-  // Upload a file and its metadata to the server to be converted
-  uploadController.uploadFile = function (file, metadata) {
-    // Create formdata
-    const data = new FormData();
-
-    // Add file to data
-    data.set('data', file);
-
-    // Add metadata
-    for (const key in metadata) { // eslint-disable-line
-      if (metadata.hasOwnProperty(key)) {
-        data.set(key, metadata[key]);
-      }
-    }
-  };
-
-  uploadController.readFileInput = function (event, callback) {
-    if (event) {
-      const file = event.target.files[0];
+  uploadController.readFileInput = function (inputElement, callback) {
+    if (inputElement) {
+      uploadController.dayNumber = inputElement.parent()[0].getAttribute('data-day');
+      const file = inputElement[0].files[0];
       const reader = new FileReader();
       reader.onload = function (loadEvent) {
         const arrayBuffer = loadEvent.target.result;
@@ -33,7 +61,18 @@ $(() => {
   };
 
   uploadController.outputResult = function (result) {
-    console.log(result.value);
+    console.log(uploadController.dayNumber);
+    uploadController.dailyData[uploadController.dayNumber].body = (result.value);
+    uploadController.dailyData[uploadController.dayNumber].isbn = $('#isbnInput').val();
+    uploadController.dailyData[uploadController.dayNumber].author = $('#authorInput').val();
+    uploadController.dailyData[uploadController.dayNumber].title = $('#bookTitle').val();
+    uploadController.dailyData[uploadController.dayNumber].videoLink = 'connect video link here';
+    uploadController.dailyData[uploadController.dayNumber].emailIntro = $('#emailIntroInput').val();
+    if (parseInt(uploadController.dayNumber, 10) < 4) {
+      const nextFile = parseInt(uploadController.dayNumber, 10) + 2;
+      uploadController.readFileInput($(`#chapter${nextFile}FileInput`), uploadController.converter);
+    }
+    console.log(uploadController.dailyData);
   };
 
   uploadController.converter = function (arrayBuffer) {
@@ -43,8 +82,8 @@ $(() => {
   };
 
   $(document).ready(() => {
-    $('#chapter1FileInput').on('change', (event) => {
-      uploadController.readFileInput(event, uploadController.converter);
+    $('#chapterSubmit').on('click', () => {
+      uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
     });
   });
 
