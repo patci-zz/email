@@ -3,3 +3,4 @@ node_modules/
 example_files/
 npm-debug.log
 env.sh
+nwjs-binaries/
