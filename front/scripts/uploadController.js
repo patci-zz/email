@@ -7,11 +7,14 @@ $(() => {
   uploadController.dynamicData = {};
 
 
-  uploadController.Static = function (isbn, author, title, emailIntro) {
+  uploadController.Static = function (isbn, author, title, emailIntro, bannerInput, bannerHref, bannerDesc) {
     this.isbn = isbn;
     this.author = author;
     this.title = title;
     this.emailIntro = emailIntro;
+    this.bannerInput = bannerInput;
+    this.bannerHref = bannerHref;
+    this.bannerDesc = bannerDesc;
   };
 
   // reads file. Sets dayNumber for element tracking.
@@ -34,9 +37,7 @@ $(() => {
     const dayBody = `day${num}Body`;
     const dayAudio = `day${num}Audio`;
     uploadController.dynamicData[dayBody] = result.value;
-    if ($(`#chapter${num}AudioBook`).val()) {
-      uploadController.dynamicData[dayAudio] = $(`#chapter${num}AudioBook`).val();
-    }
+    uploadController.dynamicData[dayAudio] = $(`#chapter${num}AudioBook`).val();
     if (parseInt(uploadController.dayNumber, 10) < 5) {
       const nextFile = parseInt(uploadController.dayNumber, 10) + 1;
       uploadController.readFileInput($(`#chapter${nextFile}FileInput`), uploadController.converter);
@@ -63,17 +64,11 @@ $(() => {
         $('#isbnInput').val(),
         $('#authorInput').val(),
         $('#bookTitle').val(),
-        $('#emailIntroInput').val()
+        $('#emailIntroInput').val(),
+        $('#bannerInput').val(),
+        $('#bannerHref').val(),
+        $('#bannerDesc').val()
       );
-      if ($('#bannerInput').val()) {
-        uploadController.staticData.bannerInput = $('#bannerInput').val();
-      }
-      if ($('#bannerHref').val()) {
-        uploadController.staticData.bannerHref = $('#bannerHref').val();
-      }
-      if ($('#bannerDesc').val()) {
-        uploadController.staticData.bannerDesc = $('#bannerDesc').val();
-      }
     });
   });
 
