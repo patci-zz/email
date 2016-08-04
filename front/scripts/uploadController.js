@@ -32,10 +32,10 @@ $(() => {
   uploadController.outputResult = function (result) {
     const num = uploadController.dayNumber;
     const dayBody = `day${num}Body`;
-    const dayVideo = `day${num}Video`;
+    const dayAudio = `day${num}Audio`;
     uploadController.dynamicData[dayBody] = result.value;
     if ($(`#chapter${num}AudioBook`).val()) {
-      uploadController.dynamicData[dayVideo] = $(`#chapter${num}AudioBook`).val();
+      uploadController.dynamicData[dayAudio] = $(`#chapter${num}AudioBook`).val();
     }
     if (parseInt(uploadController.dayNumber, 10) < 5) {
       const nextFile = parseInt(uploadController.dayNumber, 10) + 1;
