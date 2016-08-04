@@ -4,3 +4,4 @@ example_files/
 npm-debug.log
 env.sh
 nwjs-binaries/
+nwjs-sdk*/
