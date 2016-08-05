@@ -4,16 +4,17 @@
 $(() => {
   const uploadController = {};
   uploadController.dayNumber = '';
-  uploadController.weeklyData = [];
+  uploadController.dynamicData = {};
 
-  uploadController.DayData = function (body, isbn, author, title, audioLink, emailIntro, bannerInput) {
-    this.body = body;
+
+  uploadController.Static = function (isbn, author, title, emailIntro, bannerInput, bannerHref, bannerDesc) {
     this.isbn = isbn;
     this.author = author;
     this.title = title;
-    this.audioLink = audioLink;
     this.emailIntro = emailIntro;
     this.bannerInput = bannerInput;
+    this.bannerHref = bannerHref;
+    this.bannerDesc = bannerDesc;
   };
 
   // reads file. Sets dayNumber for element tracking.
@@ -32,23 +33,18 @@ $(() => {
 
   // populates daily objects
   uploadController.outputResult = function (result) {
-    console.log(uploadController.dayNumber);
-    const day = new uploadController.DayData(
-      result.value,
-      $('#isbnInput').val(),
-      $('#authorInput').val(),
-      $('#bookTitle').val(),
-      'connect audio link here',
-      $('#emailIntroInput').val(),
-      $('#bannerInput').val()
-    );
-    uploadController.weeklyData.push(day);
-
-    if (parseInt(uploadController.dayNumber, 10) < 4) {
-      const nextFile = parseInt(uploadController.dayNumber, 10) + 2;
+    const num = uploadController.dayNumber;
+    const dayBody = `day${num}Body`;
+    const dayAudio = `day${num}Audio`;
+    uploadController.dynamicData[dayBody] = result.value;
+    uploadController.dynamicData[dayAudio] = $(`#chapter${num}AudioBook`).val();
+    if (parseInt(uploadController.dayNumber, 10) < 5) {
+      const nextFile = parseInt(uploadController.dayNumber, 10) + 1;
       uploadController.readFileInput($(`#chapter${nextFile}FileInput`), uploadController.converter);
+    } else {
+      console.log(uploadController.dynamicData);
+      console.log(uploadController.staticData);
     }
-    console.log(uploadController.weeklyData);
   };
 
   // converts doc.x to html
@@ -62,6 +58,17 @@ $(() => {
   $(document).ready(() => {
     $('#chapterSubmit').on('click', () => {
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
+    });
+    $('#chapterSubmit').on('click', () => {
+      uploadController.staticData = new uploadController.Static(
+        $('#isbnInput').val(),
+        $('#authorInput').val(),
+        $('#bookTitle').val(),
+        $('#emailIntroInput').val(),
+        $('#bannerInput').val(),
+        $('#bannerHref').val(),
+        $('#bannerDesc').val()
+      );
     });
   });
 
