@@ -2,25 +2,16 @@
 
 
 $(() => {
+
   const uploadController = {};
   uploadController.dayNumber = '';
-  uploadController.dynamicData = {};
-
-
-  uploadController.Static = function (isbn, author, title, emailIntro, bannerInput, bannerHref, bannerDesc) {
-    this.isbn = isbn;
-    this.author = author;
-    this.title = title;
-    this.emailIntro = emailIntro;
-    this.bannerInput = bannerInput;
-    this.bannerHref = bannerHref;
-    this.bannerDesc = bannerDesc;
-  };
+  uploadController.dayInteger = '';
 
   // reads file. Sets dayNumber for element tracking.
   uploadController.readFileInput = function (inputElement, callback) {
     if (inputElement) {
       uploadController.dayNumber = inputElement.parent()[0].getAttribute('data-day');
+      uploadController.dayInteger = inputElement.parent()[0].getAttribute('data-int');
       const file = inputElement[0].files[0];
       const reader = new FileReader();
       reader.onload = function (loadEvent) {
@@ -34,16 +25,19 @@ $(() => {
   // populates daily objects
   uploadController.outputResult = function (result) {
     const num = uploadController.dayNumber;
-    const dayBody = `day${num}Body`;
-    const dayAudio = `day${num}Audio`;
-    uploadController.dynamicData[dayBody] = result.value;
-    uploadController.dynamicData[dayAudio] = $(`#chapter${num}AudioBook`).val();
-    if (parseInt(uploadController.dayNumber, 10) < 5) {
-      const nextFile = parseInt(uploadController.dayNumber, 10) + 1;
+    const int = uploadController.dayInteger;
+    const body = `chapterBody${num}`;
+    const audio = `audioChap${num}Link`;
+
+    dynamic[body] = result.value;
+    dynamic[audio] = $(`#chapter${int}AudioBook`).val();
+
+    if (parseInt(uploadController.dayInteger, 10) < 5) {
+      const nextFile = parseInt(uploadController.dayInteger, 10) + 1;
       uploadController.readFileInput($(`#chapter${nextFile}FileInput`), uploadController.converter);
     } else {
-      console.log(uploadController.dynamicData);
-      console.log(uploadController.staticData);
+      console.log(dynamic);
+      console.log(consistent);
     }
   };
 
@@ -60,15 +54,13 @@ $(() => {
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
     });
     $('#chapterSubmit').on('click', () => {
-      uploadController.staticData = new uploadController.Static(
-        $('#isbnInput').val(),
-        $('#authorInput').val(),
-        $('#bookTitle').val(),
-        $('#emailIntroInput').val(),
-        $('#bannerInput').val(),
-        $('#bannerHref').val(),
-        $('#bannerDesc').val()
-      );
+      consistent.isbn = $('#isbnInput').val();
+      consistent.author = $('#authorInput').val();
+      consistent.title = $('#bookTitle').val();
+      consistent.intro = $('#emailIntroInput').val();
+      consistent.bannerImgLink = $('#bannerImg').val();
+      consistent.bannerHrefLink = $('#bannerHref').val();
+      consistent.bannerDescription = $('#bannerDesc').val();
     });
   });
 
