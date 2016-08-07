@@ -1,8 +1,4 @@
-
-
-
 $(() => {
-
   const uploadController = {};
   uploadController.dayNumber = '';
   uploadController.dayInteger = '';
