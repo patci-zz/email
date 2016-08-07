@@ -7,6 +7,13 @@
     "dev": "nodemon back/server.js --ext 'js,handlebars'",
     "lint": "eslint back/*.js front/scripts/*.js"
   },
+  "window": {
+    "title": "HTML Email",
+    "min_height": 800,
+    "max_height": 800,
+    "min_width": 1000,
+    "max_width": 1000
+  },
   "main": "front/index.html",
   "author": "rpatci@gmail.com",
   "license": "ISC",
