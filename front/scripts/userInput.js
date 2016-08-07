@@ -4,7 +4,6 @@ const consistent = {
   title: 'Sample Title',
   author: 'Rick Patci',
   isbn: '123456789',
-  bookCoverImg: 'url',
   intro: "Well, hello! Welcome to today's First Five!",
   bannerImgLink: 'http://hccbbooks.com/emails/epicreads/first5/asylum.jpg',
   bannerHrefLink: 'link',
