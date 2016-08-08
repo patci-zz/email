@@ -1,4 +1,6 @@
 $(() => {
+  const tidy = require('htmltidy2').tidy,
+      fs = require('fs');
   const uploadController = {};
   uploadController.dayNumber = '';
   uploadController.dayInteger = '';
@@ -35,6 +37,7 @@ $(() => {
       console.log(dynamic);
       console.log(consistent);
     }
+    exposeBuildWrite();
   };
 
   // converts doc.x to html
@@ -70,4 +73,40 @@ $(() => {
   //   $('#chapterInputFieldset').attr('disabled', !metadataFilledIn);
   //   $('#errorMessage').css('display', metadataFilledIn ? 'none' : '');
   // });
+
+  function exposeBuildWrite() {
+    const template1 = dayOneCompile(consistent, dynamic),
+          template1Web = dayOneWebCompile(consistent, dynamic),
+          template2 = dayTwoCompile(consistent, dynamic),
+          template2Web = dayTwoWebCompile(consistent, dynamic),
+          template3 = dayThreeCompile(consistent, dynamic),
+          template3Web = dayThreeWebCompile(consistent, dynamic),
+          template4 = dayFourCompile(consistent, dynamic),
+          template4Web = dayFourWebCompile(consistent, dynamic),
+          template5 = dayFiveCompile(consistent, dynamic);
+
+    const templates = [template1, template1Web,
+                     template2, template2Web,
+                     template3, template3Web,
+                     template4, template4Web,
+                     template5,
+                    ];
+    templates.forEach( function(currentTemplate) {
+      let html = '';
+      // this concatenated mess sets up a nice dynamic file name for fs.writeFile:
+      let fileName = consistent.title.replace(/\s/g,'-') + '-' + currentTemplate.name + '.html';
+      // the true build compiling begins here:
+      for (var props in currentTemplate) {
+        // since adding a name property for the new file only, do not include that in the html:
+        if(props !== 'name') html += currentTemplate[props];
+      }
+      // clean up the structure of the html so it isn't all on one line:
+      tidy(html, function(err, htmlTidy) {
+        if (err) throw err;
+        fs.writeFile(fileName, htmlTidy, () => {
+          if (err) throw err;
+        });
+      });
+    });
+  }
 });
