@@ -52,6 +52,7 @@ $(() => {
     $('#chapterSubmit').on('click', () => {
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
     });
+    //Populate consistent object
     $('#chapterSubmit').on('click', () => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
