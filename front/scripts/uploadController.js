@@ -4,6 +4,7 @@ $(() => {
   const uploadController = {};
   uploadController.dayNumber = '';
   uploadController.dayInteger = '';
+  uploadController.destinationDirectory = '';
 
   // reads file. Sets dayNumber for element tracking.
   uploadController.readFileInput = function (inputElement, callback) {
@@ -62,7 +63,20 @@ $(() => {
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
     });
+    $('#downloadTo').on('change', function () {
+      const downloadDir = $(this).val();
+      uploadController.destinationDirectory = downloadDir;
+    });
   });
+
+  // $(function () {
+  //       $("#fileDialog").on("change", function () {
+  //           var files = $(this)[0].files;
+  //           for (var i = 0; i < files.length; ++i) {
+  //           console.log(files[i].path);
+  //           }
+  //       });
+  //   });
 
   // // Disable chapter upload unless metadata is complete
   // const metadataInputs = $('#metadata :input');
@@ -96,6 +110,9 @@ $(() => {
       let html = '';
       // this concatenated mess sets up a nice dynamic file name for fs.writeFile:
       let fileName = consistent.title.replace(/\s/g,'-') + '-' + currentTemplate.name + '.html';
+      // add directory path to file name:
+      fileName = uploadController.destinationDirectory + '/' + fileName;
+
       // the true build compiling begins here:
       for (var props in currentTemplate) {
         // since adding a name property for the new file only, do not include that in the html:

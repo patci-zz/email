@@ -40,6 +40,10 @@ form .form-file {
   display: none;
 }
 
+form .form-directory {
+  display: none;
+}
+
 input.audio-file {
   width: 165px;
 }
