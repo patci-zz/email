@@ -63,8 +63,8 @@ $(() => {
       consistent.bannerDescription = $('#bannerDesc').val();
     });
     $('#downloadTo').on('change', function () {
-      const files = $(this)[0].files;
-      uploadController.destinationDirectory = files[0].path;
+      const downloadDir = $(this).val();
+      uploadController.destinationDirectory = downloadDir;
     });
   });
 
@@ -111,7 +111,6 @@ $(() => {
       let fileName = consistent.title.replace(/\s/g,'-') + '-' + currentTemplate.name + '.html';
       // add directory path to file name:
       fileName = uploadController.destinationDirectory + '/' + fileName;
-      alert(fileName);
 
       // the true build compiling begins here:
       for (var props in currentTemplate) {
