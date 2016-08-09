@@ -61,7 +61,7 @@ $(() => {
   // verifies that entry is 10 characters long
   uploadController.isbnVerifier = function (el) {
     if (el.attr('id') === 'isbnInput') {
-      if (el.val().length === 10) return true;
+      if (el.val().length >= 10) return true;
     } else {
       return true;
     }
