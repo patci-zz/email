@@ -25,12 +25,18 @@
       </div>
 
       <div class="row">
+        <div class="col-sm-12">
+          <h3>All required inputs are yellow.  When everything turns green you are ready to submit!</h3>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-6">
           <form>
             <div class="form-group">
               <input
                 type="text"
-                class="form-control"
+                class="form-control required required-form"
                 id="isbnInput"
                 placeholder="ISBN"
                 required
@@ -40,18 +46,20 @@
             <div class="form-group">
               <input
                 type="text"
-                class="form-control"
+                class="form-control required required-form"
                 id="authorInput"
                 placeholder="Author Name"
+                required
               >
             </div>
 
             <div class="form-group">
               <input
                 type="text"
-                class="form-control"
+                class="form-control required required-form"
                 id="bookTitle"
                 placeholder="Book Title"
+                required
               >
             </div>
           </form>
@@ -77,15 +85,19 @@
               <form class="form">
                 <div class="col-sm-4">
                   <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <h3>File upload fields require a valid docx file.</h3>
+                      </div>
+                    </div>
                     <div class="chapter-box" data-day="One" data-int="1">
-                      <label for="chapter1FileInput">
+                      <label for="chapter1FileInput" class="required">
                         Upload: Chapter1.DOCX
                       </label>
                       <input
                       type="file"
                       class="form-file"
-                      id="chapter1FileInput"
-
+                      id="chapter1FileInput"                     
                       >
                       <input
                       type="input"
@@ -95,7 +107,7 @@
                       >
                     </div>
                     <div class="chapter-box" data-day="Two" data-int="2">
-                      <label for="chapter2FileInput">
+                      <label for="chapter2FileInput" class="required">
                         Upload: Chapter2.DOCX
                       </label>
                       <input
@@ -111,7 +123,7 @@
                       >
                     </div>
                     <div class="chapter-box" data-day="Three" data-int="3">
-                      <label for="chapter3FileInput">
+                      <label for="chapter3FileInput" class="required">
                         Upload: Chapter3.DOCX
                       </label>
                       <input
@@ -127,7 +139,7 @@
                       >
                     </div>
                     <div class="chapter-box" data-day="Four" data-int="4">
-                      <label for="chapter4FileInput">
+                      <label for="chapter4FileInput" class="required">
                         Upload: Chapter4.DOCX
                       </label>
                       <input
@@ -143,7 +155,7 @@
                       >
                     </div>
                     <div class="chapter-box" data-day="Five" data-int="5">
-                      <label for="chapter5FileInput">
+                      <label for="chapter5FileInput" class="required">
                         Upload: Chapter5.DOCX
                       </label>
                       <input
@@ -180,19 +192,20 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="downloadTo">
+                    <label for="downloadTo" class="required">
                         Choose a directory to save your files to.
                     </label>
                     <input
                         type="file"
-                        class="form-file"
+                        class="form-directory required"
                         id="downloadTo"
                         nwdirectory
                     >
                     <button
-                      class="btn btn-success"
+                      class="btn required"
                       id="chapterSubmit"
                       onclick="return false"
+                      disabled
                       >Submit</button>
                   </div>
                 </div>

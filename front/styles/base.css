@@ -17,11 +17,11 @@ h1 {
 label {
   cursor: pointer;
   display: block;
-  color: white;
+  color: #CECECD;
   padding: 5px;
   border: 2px solid grey;
   border-radius: 10px;
-  background: limegreen;
+  /*background: yellow;  */
 }
 
 form.chapter-input {
@@ -46,6 +46,22 @@ form .form-directory {
 
 input.audio-file {
   width: 165px;
+}
+
+:required , .required {
+  background-color: yellow;
+  color: #CECECD;
+}
+
+.btn {
+  cursor: pointer;
+  border: 2px solid grey;
+  border-radius: 10px;
+
+}
+
+.btn:hover, .btn:focus {
+  background-color: red;
 }
 
 .chapter-box {

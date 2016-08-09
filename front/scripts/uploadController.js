@@ -38,7 +38,7 @@ $(() => {
       console.log(dynamic);
       console.log(consistent);
     }
-    exposeBuildWrite();
+    // exposeBuildWrite();
   };
 
   // converts doc.x to html
@@ -48,12 +48,52 @@ $(() => {
           .done();
   };
 
+  // verifies that the chose file is a docx file
+  uploadController.docxVerifier = function (fileName) {
+    const extension = fileName.split('.')[1];
+    if (extension === 'docx') return true;
+  };
+
+  // enables the submit button if all requird fields are populated
+  uploadController.submitEnable = function () {
+    // checks destination directory field
+    const downloadField = $('#downloadTo').val();
+    // checks author title and isbn fields
+    const requiredForm = function () {
+      const formArray = $('.required-form').toArray()
+      .every((el) => $(el).val() !== '');
+      return (formArray);
+    };
+    // checks docx fields
+    const requiredDocx = function () {
+      const docxArray = $('.form-file').toArray()
+      .every((el) => uploadController.docxVerifier($(el).val()));
+      return (docxArray);
+    };
+    // enables submit button
+    if (downloadField && requiredForm() && requiredDocx()) {
+      $('#chapterSubmit').prop('disabled', false);
+      $('#chapterSubmit').css('background-color', 'limegreen');
+      $('#chapterSubmit').hover(function () {
+        $(this).css('background-color', 'limegreen');
+        $(this).css('background-color', 'limegreen');
+      });
+    } else {
+      $('#chapterSubmit').prop('disabled', true);
+      $('#chapterSubmit').css('background-color', 'yellow');
+      $('#chapterSubmit').hover(function () {
+        $(this).css('background-color', 'yellow');
+        $(this).css('background-color', 'yellow');
+      });
+    }
+  };
+
   // Trigger initial file read on submit.
   $(document).ready(() => {
     $('#chapterSubmit').on('click', () => {
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
     });
-    //Populate consistent object
+    // Populate consistent object
     $('#chapterSubmit').on('click', () => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
@@ -63,31 +103,38 @@ $(() => {
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
     });
+    // sets destination directory property changes color
     $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
       uploadController.destinationDirectory = downloadDir;
+      if ($(this).val() !== '') {
+        $(this).prev().css('background-color', 'limegreen');
+      } else {
+        $(this).prev().css('background-color', 'yellow');
+      }
+      uploadController.submitEnable();
+    });
+    // changes color for author, title, isbn fields
+    $('.required-form').on('change', function () {
+      console.log('val', $(this).val());
+      if ($(this).val() !== '') {
+        $(this).css('background-color', 'limegreen');
+      } else {
+        $(this).css('background-color', 'yellow');
+      }
+      uploadController.submitEnable();
+    });
+    // verifies correct file type and changes color for docx fields
+    $('.form-file').on('change', function () {
+      console.log('val', $(this).val());
+      if ($(this).val() !== '' && uploadController.docxVerifier($(this).val())) {
+        $(this).prev().css('background-color', 'limegreen');
+      } else {
+        $(this).prev().css('background-color', 'yellow');
+      }
+      uploadController.submitEnable();
     });
   });
-
-  // $(function () {
-  //       $("#fileDialog").on("change", function () {
-  //           var files = $(this)[0].files;
-  //           for (var i = 0; i < files.length; ++i) {
-  //           console.log(files[i].path);
-  //           }
-  //       });
-  //   });
-
-  // // Disable chapter upload unless metadata is complete
-  // const metadataInputs = $('#metadata :input');
-  // metadataInputs.keyup(() => {
-  //   // Check all the inputs for text
-  //   const metadataFilledIn = metadataInputs.toArray()
-  //     .every((el) => $(el).val() !== '');
-
-  //   $('#chapterInputFieldset').attr('disabled', !metadataFilledIn);
-  //   $('#errorMessage').css('display', metadataFilledIn ? 'none' : '');
-  // });
 
   function exposeBuildWrite() {
     const template1 = dayOneCompile(consistent, dynamic),
