@@ -17,7 +17,7 @@ h1 {
 label {
   cursor: pointer;
   display: block;
-  color: #CECECD;
+  color: white;
   padding: 5px;
   border: 2px solid grey;
   border-radius: 10px;
@@ -50,7 +50,7 @@ input.audio-file {
 
 :required , .required {
   background-color: orange;
-  color: #CECECD;
+  color: white;
 }
 
 .btn {
@@ -67,9 +67,13 @@ input.audio-file {
 .chapter-box {
   text-align: center;
   width: 30vh;
-  border: 5px solid black;
+  border: 3px solid black;
   padding: 7px;
   margin-bottom: 10px;
+}
+
+.required ::-webkit-input-placeholder {
+   color: red;
 }
 
 #emailIntroInput {
