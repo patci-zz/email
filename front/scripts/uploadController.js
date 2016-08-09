@@ -62,6 +62,8 @@ $(() => {
   uploadController.isbnVerifier = function (el) {
     if (el.attr('id') === 'isbnInput') {
       return (el.val().length >= 10);
+    } else {
+      return true;
     }
   };
 
