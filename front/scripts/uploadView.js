@@ -11,4 +11,5 @@ $(() => {
   };
 
   $('.form-file').on('change', uploadView.updateLabel);
+  $('.form-directory').on('change', uploadView.updateLabel);
 });

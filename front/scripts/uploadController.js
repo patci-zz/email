@@ -38,7 +38,7 @@ $(() => {
       console.log(dynamic);
       console.log(consistent);
     }
-    // exposeBuildWrite();
+    exposeBuildWrite();
   };
 
   // converts doc.x to html
