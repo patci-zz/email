@@ -42,8 +42,13 @@ $(() => {
   };
 
   // converts doc.x to html
+  var options = {
+    styleMap: [
+        "u => em"
+    ]
+  };
   uploadController.converter = function (arrayBuffer) {
-    mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+    mammoth.convertToHtml({ arrayBuffer: arrayBuffer }, options)
           .then(uploadController.outputResult)
           .done();
   };
