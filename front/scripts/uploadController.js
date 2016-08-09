@@ -48,10 +48,18 @@ $(() => {
           .done();
   };
 
-  // verifies that the chose file is a docx file
+  // verifies that the chosen file is a docx file
   uploadController.docxVerifier = function (fileName) {
     const extension = fileName.split('.')[1];
     if (extension === 'docx') return true;
+  };
+  // verifies that entry is 10 characters long
+  uploadController.isbnVerifier = function (el) {
+    if (el.attr('id') === 'isbnInput') {
+      if (el.val().length === 10) return true;
+    } else {
+      return true;
+    }
   };
 
   // enables the submit button if all requird fields are populated
@@ -80,10 +88,10 @@ $(() => {
       });
     } else {
       $('#chapterSubmit').prop('disabled', true);
-      $('#chapterSubmit').css('background-color', 'yellow');
+      $('#chapterSubmit').css('background-color', 'orange');
       $('#chapterSubmit').hover(function () {
-        $(this).css('background-color', 'yellow');
-        $(this).css('background-color', 'yellow');
+        $(this).css('background-color', 'orange');
+        $(this).css('background-color', 'orange');
       });
     }
   };
@@ -104,23 +112,23 @@ $(() => {
       consistent.bannerDescription = $('#bannerDesc').val();
     });
     // sets destination directory property changes color
-    $('#downloadTo').on('change', function () {
+    $('#downloadTo').on('keyup', function () {
       const downloadDir = $(this).val();
       uploadController.destinationDirectory = downloadDir;
       if ($(this).val() !== '') {
         $(this).prev().css('background-color', 'limegreen');
       } else {
-        $(this).prev().css('background-color', 'yellow');
+        $(this).prev().css('background-color', 'orange');
       }
       uploadController.submitEnable();
     });
     // changes color for author, title, isbn fields
-    $('.required-form').on('change', function () {
+    $('.required-form').on('keyup', function () {
       console.log('val', $(this).val());
-      if ($(this).val() !== '') {
+      if ($(this).val() !== '' && uploadController.isbnVerifier($(this))) {
         $(this).css('background-color', 'limegreen');
       } else {
-        $(this).css('background-color', 'yellow');
+        $(this).css('background-color', 'orange');
       }
       uploadController.submitEnable();
     });
@@ -130,7 +138,7 @@ $(() => {
       if ($(this).val() !== '' && uploadController.docxVerifier($(this).val())) {
         $(this).prev().css('background-color', 'limegreen');
       } else {
-        $(this).prev().css('background-color', 'yellow');
+        $(this).prev().css('background-color', 'orange');
       }
       uploadController.submitEnable();
     });

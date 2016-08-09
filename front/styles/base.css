@@ -49,7 +49,7 @@ input.audio-file {
 }
 
 :required , .required {
-  background-color: yellow;
+  background-color: orange;
   color: #CECECD;
 }
 
