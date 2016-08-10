@@ -117,7 +117,7 @@ $(() => {
       consistent.bannerDescription = $('#bannerDesc').val();
     });
     // sets destination directory property changes color
-    $('#downloadTo').on('keyup', function () {
+    $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
       uploadController.destinationDirectory = downloadDir;
       if ($(this).val() !== '') {
@@ -169,7 +169,7 @@ $(() => {
     templates.forEach( function(currentTemplate) {
       let html = '';
       // this concatenated mess sets up a nice dynamic file name for fs.writeFile:
-      let fileName = consistent.title.replace(/\s/g,'-') + '-' + currentTemplate.name + '.html';
+      let fileName = 'first5_' + consistent.title.replace(/\s/g, '').toLowerCase() + '_' + currentTemplate.name + '.html';
       // add directory path to file name:
       fileName = uploadController.destinationDirectory + '/' + fileName;
 
