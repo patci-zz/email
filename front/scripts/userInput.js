@@ -5,6 +5,8 @@ const consistent = {
   author: 'Rick Patci',
   isbn: '123456789',
   intro: "Well, hello! Welcome to today's First Five!",
+  copyrightYear: "2000",
+  copyrightHolder: "Rick",
   bannerImgLink: 'http://hccbbooks.com/emails/epicreads/first5/asylum.jpg',
   bannerHrefLink: 'link',
   bannerDescription: 'description',
