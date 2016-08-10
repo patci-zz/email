@@ -52,7 +52,6 @@ $(() => {
           .then(uploadController.outputResult)
           .done();
   };
-
   // verifies that the chosen file is a docx file
   uploadController.docxVerifier = function (fileName) {
     const extension = fileName.split('.')[1];
@@ -65,6 +64,11 @@ $(() => {
     } else {
       return true;
     }
+  };
+  // emphasizes the title wherever it is found in the intro.
+  uploadController.emphasizer = function (oldString, fullString) {
+    const newString = '<em>' + oldString + '</em>';
+    return fullString.split(oldString).join(newString);
   };
 
   // enables the submit button if all requird fields are populated
@@ -111,7 +115,7 @@ $(() => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
       consistent.title = $('#bookTitle').val();
-      consistent.intro = $('#emailIntroInput').val();
+      consistent.intro = uploadController.emphasizer(consistent.title, $('#emailIntroInput').val());
       consistent.bannerImgLink = $('#bannerImg').val();
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
