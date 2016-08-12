@@ -23,7 +23,8 @@ label {
   border-radius: 10px;
   background-color: #99CA3C;
   width: 70%;
-  margin: 0 auto;
+  margin: 5% auto;
+  color: white;
 }
 
 form.chapter-input {
@@ -81,6 +82,7 @@ input#bannerImg, input#bannerHref, input#bannerDesc {
 }
 
 label.last-label {
+  width: 200px;
   margin: 5% auto;
 }
 
