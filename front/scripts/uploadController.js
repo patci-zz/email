@@ -29,7 +29,7 @@ $(() => {
     const audio = `audioChap${num}Link`;
 
     dynamic[body] = result.value;
-    dynamic[audio] = $(`#chapter${int}AudioBook`).val();
+    dynamic[audio] = $(`#chapter${int}AudioBook`).val().trim();
 
     if (parseInt(uploadController.dayInteger, 10) < 5) {
       const nextFile = parseInt(uploadController.dayInteger, 10) + 1;
@@ -112,15 +112,15 @@ $(() => {
     });
     // Populate consistent object
     $('#chapterSubmit').on('click', () => {
-      consistent.isbn = $('#isbnInput').val();
-      consistent.author = $('#authorInput').val();
-      consistent.title = $('#bookTitle').val();
+      consistent.isbn = $('#isbnInput').val().trim();
+      consistent.author = $('#authorInput').val().trim();
+      consistent.title = $('#bookTitle').val().trim();
       consistent.intro = uploadController.emphasizer(consistent.title, $('#emailIntroInput').val());
-      consistent.copyrightYear = $('#copyright-year').val();
-      consistent.copyrightHolder = $('#copyright-holder').val();
-      consistent.bannerImgLink = $('#bannerImg').val();
-      consistent.bannerHrefLink = $('#bannerHref').val();
-      consistent.bannerDescription = $('#bannerDesc').val();
+      consistent.copyrightYear = $('#copyright-year').val().trim();
+      consistent.copyrightHolder = $('#copyright-holder').val().trim();
+      consistent.bannerImgLink = $('#bannerImg').val().trim();
+      consistent.bannerHrefLink = $('#bannerHref').val().trim();
+      consistent.bannerDescription = $('#bannerDesc').val().trim();
     });
     // sets destination directory property changes color
     $('#downloadTo').on('change', function () {
