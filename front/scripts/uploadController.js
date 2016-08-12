@@ -66,9 +66,11 @@ $(() => {
     }
   };
   // emphasizes the title wherever it is found in the intro.
-  uploadController.emphasizer = function (oldString, fullString) {
-    const newString = '<em>' + oldString + '</em>';
-    return fullString.split(oldString).join(newString);
+  uploadController.introFormatter = function (title, originalString) {
+    const italicized = '<em>' + title + '</em>';
+    const newString = originalString.split(title).join(italicized);
+    const output = newString.trim().replace(/\n/g,'<br>').concat('<br>');
+    return output;
   };
 
   // enables the submit button if all requird fields are populated
@@ -115,7 +117,7 @@ $(() => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
       consistent.title = $('#bookTitle').val();
-      consistent.intro = uploadController.emphasizer(consistent.title, $('#emailIntroInput').val());
+      consistent.intro = uploadController.introFormatter(consistent.title, $('#emailIntroInput').val());
       consistent.copyrightYear = $('#copyright-year').val();
       consistent.copyrightHolder = $('#copyright-holder').val();
       consistent.bannerImgLink = $('#bannerImg').val();
