@@ -1,5 +1,5 @@
 body {
-  background-color: beige;
+  background-color: #FFFFFF;
 }
 
 img {
@@ -12,16 +12,19 @@ nav.navbar {
 
 h1 {
   margin-bottom: 20px;
+  font: Georgia;
 }
 
 label {
   cursor: pointer;
   display: block;
-  color: white;
   padding: 5px;
   border: 2px solid grey;
   border-radius: 10px;
-  /*background: yellow;  */
+  background-color: #99CA3C;
+  width: 70%;
+  margin: 5% auto;
+  color: white;
 }
 
 form.chapter-input {
@@ -45,38 +48,45 @@ form .form-directory {
 }
 
 input.audio-file {
-  width: 165px;
-}
-
-:required , .required {
-  background-color: orange;
-  color: white;
+  width: 300px;
 }
 
 .btn {
   cursor: pointer;
   border: 2px solid grey;
   border-radius: 10px;
-
-}
-
-.btn:hover, .btn:focus {
-  background-color: red;
+  background-color: #F97E00;
 }
 
 .chapter-box {
   text-align: center;
-  width: 30vh;
+  width: 455px;
   border: 3px solid black;
   padding: 7px;
   margin-bottom: 10px;
 }
 
-.required ::-webkit-input-placeholder {
-   color: red;
+#emailIntroInput {
+  height: 200px;
+  max-height: 200px;
+  width: 455px;
+  max-width: 455px;
 }
 
-#emailIntroInput {
-  height: 135px;
-  max-height: 135px;
+input#copyright-year,  input#copyright-holder {
+  width: 455px;
+}
+
+input#bannerImg, input#bannerHref, input#bannerDesc {
+  width: 455px;
+}
+
+label.last-label {
+  width: 200px;
+  margin: 5% auto;
+}
+
+.last-box {
+  width: 455px;
+  text-align: center;
 }

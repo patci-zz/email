@@ -99,10 +99,10 @@ $(() => {
       });
     } else {
       $('#chapterSubmit').prop('disabled', true);
-      $('#chapterSubmit').css('background-color', 'orange');
+      $('#chapterSubmit').css('background-color', 'grey');
       $('#chapterSubmit').hover(function () {
-        $(this).css('background-color', 'orange');
-        $(this).css('background-color', 'orange');
+        $(this).css('background-color', 'grey');
+        $(this).css('background-color', 'grey');
       });
     }
   };
@@ -131,7 +131,7 @@ $(() => {
       if ($(this).val() !== '') {
         $(this).prev().css('background-color', 'limegreen');
       } else {
-        $(this).prev().css('background-color', 'orange');
+        $(this).prev().css('background-color', 'grey');
       }
       uploadController.submitEnable();
     });
@@ -141,7 +141,7 @@ $(() => {
       if ($(this).val() !== '' && uploadController.isbnVerifier($(this))) {
         $(this).css('background-color', 'limegreen');
       } else {
-        $(this).css('background-color', 'orange');
+        $(this).css('background-color', 'grey');
       }
       uploadController.submitEnable();
     });
@@ -151,7 +151,7 @@ $(() => {
       if ($(this).val() !== '' && uploadController.docxVerifier($(this).val())) {
         $(this).prev().css('background-color', 'limegreen');
       } else {
-        $(this).prev().css('background-color', 'orange');
+        $(this).prev().css('background-color', 'grey');
       }
       uploadController.submitEnable();
     });
