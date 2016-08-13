@@ -23,7 +23,7 @@ function dayOneCompile(consistent, dynamic) {
     html19: consistent.author,
     html20: "</span></td></tr></tbody></table><table border='0' cellpadding='0' cellspacing='5' style='border-spacing: 5px; border-collapse: separate;' width='324'><tbody><tr><td align='center' bgcolor='#000000' colspan='3' height='40'><a href='https://www.harpercollins.com/",
     html21: consistent.isbn,
-    html22: "/my-lady-jane' name='www_harpercollins_com_",
+    html22: "/" + consistent.title.replace(/\s/g, '-').toLowerCase() + "' name='www_harpercollins_com_",
     html23: consistent.isbn,
     html24: "' style='font-family: Arial, Helvetica, sans-serif; font-weight:bold; font-size:13px; text-decoration: none; line-height: 40px; width: 100%; display: inline-block; text-align:center;' target='_blank' xt='SPCLICK'><span style='color:#ee2765'>PURCHASE FROM HC.COM</span></a></td></tr><tr><td align='center' bgcolor='#000000' height='40' width='83'><a href='http://ads.harpercollins.com/first5mail?isbn=",
     html25: consistent.isbn,
