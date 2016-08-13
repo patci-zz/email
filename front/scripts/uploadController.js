@@ -66,9 +66,11 @@ $(() => {
     }
   };
   // emphasizes the title wherever it is found in the intro.
-  uploadController.emphasizer = function (oldString, fullString) {
-    const newString = '<em>' + oldString + '</em>';
-    return fullString.split(oldString).join(newString);
+  uploadController.introFormatter = function (title, originalString) {
+    const italicized = '<em>' + title + '</em>';
+    const newString = originalString.split(title).join(italicized);
+    const output = newString.trim().replace(/\n/g,'<br>').concat('<br>');
+    return output;
   };
 
   // enables the submit button if all requird fields are populated
@@ -90,21 +92,10 @@ $(() => {
     // enables submit button
     if (downloadField && requiredForm() && requiredDocx()) {
       $('#chapterSubmit').prop('disabled', false);
-      $('#chapterSubmit').css('background-color', 'limegreen');
-      $('#chapterSubmit').hover(function () {
-        $(this).css('background-color', 'limegreen');
-        $(this).css('background-color', 'limegreen');
-      });
     } else {
       $('#chapterSubmit').prop('disabled', true);
-      $('#chapterSubmit').css('background-color', 'grey');
-      $('#chapterSubmit').hover(function () {
-        $(this).css('background-color', 'grey');
-        $(this).css('background-color', 'grey');
-      });
     }
   };
-
   // Trigger initial file read on submit.
   $(document).ready(() => {
     $('#chapterSubmit').on('click', () => {
@@ -115,42 +106,27 @@ $(() => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
       consistent.title = $('#bookTitle').val();
-      consistent.intro = uploadController.emphasizer(consistent.title, $('#emailIntroInput').val());
+      consistent.intro = uploadController.introFormatter(consistent.title, $('#emailIntroInput').val());
       consistent.copyrightYear = $('#copyright-year').val();
       consistent.copyrightHolder = $('#copyright-holder').val();
       consistent.bannerImgLink = $('#bannerImg').val();
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
     });
-    // sets destination directory property changes color
+    // sets destination directory property 
     $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
       uploadController.destinationDirectory = downloadDir;
-      if ($(this).val() !== '') {
-        $(this).prev().css('background-color', 'limegreen');
-      } else {
-        $(this).prev().css('background-color', 'grey');
-      }
       uploadController.submitEnable();
     });
-    // changes color for author, title, isbn fields
+    // Calls enable function after data entry in title, author, and ISBN field
     $('.required-form').on('keyup', function () {
       console.log('val', $(this).val());
-      if ($(this).val() !== '' && uploadController.isbnVerifier($(this))) {
-        $(this).css('background-color', 'limegreen');
-      } else {
-        $(this).css('background-color', 'grey');
-      }
       uploadController.submitEnable();
     });
-    // verifies correct file type and changes color for docx fields
+    // verifies correct file type for docx fields
     $('.form-file').on('change', function () {
       console.log('val', $(this).val());
-      if ($(this).val() !== '' && uploadController.docxVerifier($(this).val())) {
-        $(this).prev().css('background-color', 'limegreen');
-      } else {
-        $(this).prev().css('background-color', 'grey');
-      }
       uploadController.submitEnable();
     });
   });

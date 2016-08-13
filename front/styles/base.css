@@ -55,7 +55,7 @@ input.audio-file {
   cursor: pointer;
   border: 2px solid grey;
   border-radius: 10px;
-  background-color: #F97E00;
+  background-color: #99CA3C;
 }
 
 .chapter-box {
@@ -69,12 +69,12 @@ input.audio-file {
 #emailIntroInput {
   height: 200px;
   max-height: 200px;
-  width: 455px;
+  width: 440px;
   max-width: 455px;
 }
 
 input#copyright-year,  input#copyright-holder {
-  width: 455px;
+  width: 95%;
 }
 
 input#bannerImg, input#bannerHref, input#bannerDesc {
@@ -89,4 +89,27 @@ label.last-label {
 .last-box {
   width: 455px;
   text-align: center;
+}
+
+.asterisk {
+  font-size: 30px;
+  color: red;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.intro-asterisk {
+  font-size: 30px;
+  color: red;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.copyright {
+  width: 460px;
+}
+
+.form-control {
+  width: 440px;
+  display: inline-block;
 }
