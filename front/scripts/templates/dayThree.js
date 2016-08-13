@@ -1,4 +1,5 @@
 function dayThreeCompile(consistent, dynamic) {
+  const learnMoreAnchor = "<a href='http://www.epicreads.com/books/" + consistent.title.replace(/\s/g, '-').toLowerCase() + '/' + consistent.isbn + "/' name='www_epicreads_com_books_" + consistent.title.replace(/\s/g, '_').toLowerCase().slice(0, 11) + "' style='font-family:  Arial, Helvetica, sans-serif; font-size:16px; color:#ee2765; text-decoration: none; font-weight:bold; line-height: 45px; width: 100%; display: inline-block;' target='_blank' xt='SPCLICK'>LEARN MORE</a>";
   const webTrackBaseUrl = "<a href='http://www.epicreads.com/first5/first5_";
   return {
     name: 'ch3',
@@ -11,7 +12,7 @@ function dayThreeCompile(consistent, dynamic) {
     html6_1: "Missed a chapter? No Problem! Read ",
     html6_2: webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch1_webtrack.html'>Chapter 1</a>" + ', or ' + webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch2_webtrack.html'>Chapter 2</a>" + " now.",
     html7: "</span><br>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
-    html8: "<span style='font-size: 18px;'><a href='" + consistent.isbn + "/' name='" + consistent.title + "' style='font-family:  Arial, Helvetica, sans-serif; font-size:16px; color:#ee2765; text-decoration: none; font-weight:bold; line-height: 45px; width: 100%; display: inline-block;' target='_blank' xt='SPCLICK'>LEARN MORE</a></span></td></tr></tbody></table>",
+    html8: "<span style='font-size: 18px;'>" + learnMoreAnchor + "</span></td></tr></tbody></table>",
     html9: "<span style='font-size: 18px;'> </span></td></tr></tbody></table></td></tr></tbody></table><table align='center' border='0' cellpadding='0' cellspacing='0' width='600'><tbody><tr><td style='padding-top:20px;'><table align='center' border='0' cellpadding='0' cellspacing='0' width='560'><tbody><tr><td style='font-family: Arial, Helvetica, sans-serif; font-size:22px; line-height: 28px;' valign='top' width='560'>",
     html10: "<p align='center'><strong>" + dynamic.chapterThree + '</strong></p>&nbsp;',
     html11: dynamic.chapterBodyThree,
