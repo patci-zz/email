@@ -9,7 +9,7 @@ function dayTwoCompile(consistent, dynamic) {
     html6: dynamic.audioChapTwoLink ? "<a href='" + dynamic.audioChapTwoLink + "'>Listen</a> to the latest chapter now or start reading below." : "",
     html6_1: "Missed a chapter? No Problem! Read ",
     html6_2: "<a href='" + "link1" + "'>Chapter 1</a>.",
-    html7: "</span>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
+    html7: "</span><br>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
     html8: "<span style='font-size: 18px;'><a href='" + consistent.isbn + "/' name='" + consistent.title + "' style='font-family:  Arial, Helvetica, sans-serif; font-size:16px; color:#ee2765; text-decoration: none; font-weight:bold; line-height: 45px; width: 100%; display: inline-block;' target='_blank' xt='SPCLICK'>LEARN MORE</a></span></td></tr></tbody></table>",
     html9: "<span style='font-size: 18px;'> </span></td></tr></tbody></table></td></tr></tbody></table><table align='center' border='0' cellpadding='0' cellspacing='0' width='600'><tbody><tr><td style='padding-top:20px;'><table align='center' border='0' cellpadding='0' cellspacing='0' width='560'><tbody><tr><td style='font-family: Arial, Helvetica, sans-serif; font-size:22px; line-height: 28px;' valign='top' width='560'>",
     html10: "<p align='center'><strong>" + dynamic.chapterTwo + '</strong></p>&nbsp;',
