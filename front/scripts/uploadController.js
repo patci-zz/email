@@ -113,7 +113,7 @@ $(() => {
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
     });
-    // sets destination directory property 
+    // sets destination directory property
     $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
       uploadController.destinationDirectory = downloadDir;
@@ -142,16 +142,20 @@ $(() => {
           template4Web = dayFourWebCompile(consistent, dynamic),
           template5 = dayFiveCompile(consistent, dynamic);
 
-    const templates = [template1, template1Web,
-                     template2, template2Web,
-                     template3, template3Web,
-                     template4, template4Web,
-                     template5,
+    const templates = [template1, template2,
+                     template3, template4,
+                     template5, template1Web,
+                     template2Web, template3Web,
+                     template4Web,
                     ];
-    templates.forEach( function(currentTemplate) {
+    templates.forEach( function(currentTemplate, idx) {
       let html = '';
       // this concatenated mess sets up a nice dynamic file name for fs.writeFile:
-      let fileName = 'first5_' + consistent.title.replace(/\s/g, '').toLowerCase() + '_' + currentTemplate.name + '.html';
+      if (idx < 5) {
+        var fileName = 'First5_' + consistent.title.replace(/\s/g, '') + '_Chapter' + (idx+1)  + '.html';
+      } else {
+        var fileName = 'first5_' + consistent.title.replace(/\s/g, '').toLowerCase() + '_' + currentTemplate.name + '.html';
+      }
       // add directory path to file name:
       fileName = uploadController.destinationDirectory + '/' + fileName;
 
