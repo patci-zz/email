@@ -13,6 +13,7 @@ nav.navbar {
 }
 
 .navbar-header {
+  text-align: center;
   float: none;
 }
 
