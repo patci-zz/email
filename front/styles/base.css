@@ -15,6 +15,10 @@ nav.navbar {
   background-color: #07080A;
 }
 
+.navbar-header {
+  float: none;
+}
+
 h1 {
   margin-bottom: 20px;
   font: Georgia;
