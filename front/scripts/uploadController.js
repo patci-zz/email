@@ -98,6 +98,7 @@ $(() => {
   $(document).ready(() => {
     $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
+      $('.last-label').text('Processing ...');
       uploadController.destinationDirectory = downloadDir;
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
       consistent.isbn = $('#isbnInput').val();
@@ -170,6 +171,7 @@ $(() => {
         if (err) throw err;
         fs.writeFile(fileName, htmlTidy, () => {
           if (err) throw err;
+          $('.last-label').text('Success!');
         });
       });
     });
