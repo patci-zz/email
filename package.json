@@ -1,5 +1,5 @@
 {
-  "name": "email-templating",
+  "name": "Epic Reads",
   "version": "0.0.1",
   "description": "Email template",
   "scripts": {
@@ -9,10 +9,8 @@
   },
   "window": {
     "title": "HTML Email",
-    "min_height": 700,
-    "max_height": 800,
-    "min_width": 1000,
-    "max_width": 1000,
+    "min_height": 400,
+    "min_width": 500,  
     "toolbar": true
   },
   "main": "front/index.html",

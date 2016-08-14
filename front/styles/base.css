@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 body {
   background-color: #FFFFFF;
 }
@@ -8,6 +12,7 @@ img {
 
 nav.navbar {
   border-radius: 0;
+  background-color: #07080A;
 }
 
 h1 {
@@ -49,6 +54,7 @@ form .form-directory {
 
 input.audio-file {
   width: 300px;
+  margin-bottom: 17px;
 }
 
 .btn {
@@ -113,3 +119,12 @@ label.last-label {
   width: 440px;
   display: inline-block;
 }
+
+.bannerHeader {
+  width: 460px;
+}
+
+/*.center {
+  display: flex;
+  justify-content: center;
+}*/
