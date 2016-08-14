@@ -75,8 +75,6 @@ $(() => {
 
   // enables the submit button if all requird fields are populated
   uploadController.submitEnable = function () {
-    // checks destination directory field
-    const downloadField = $('#downloadTo').val();
     // checks author title and isbn fields
     const requiredForm = function () {
       const formArray = $('.required-form').toArray()
@@ -90,19 +88,18 @@ $(() => {
       return (docxArray);
     };
     // enables submit button
-    if (downloadField && requiredForm() && requiredDocx()) {
-      $('#chapterSubmit').prop('disabled', false);
+    if (requiredForm() && requiredDocx()) {
+      $('#downloadTo').prop('disabled', false);
     } else {
-      $('#chapterSubmit').prop('disabled', true);
+      $('#downloadTo').prop('disabled', true);
     }
   };
   // Trigger initial file read on submit.
   $(document).ready(() => {
-    $('#chapterSubmit').on('click', () => {
+    $('#downloadTo').on('change', function () {
+      const downloadDir = $(this).val();
+      uploadController.destinationDirectory = downloadDir;
       uploadController.readFileInput($('#chapter1FileInput'), uploadController.converter);
-    });
-    // Populate consistent object
-    $('#chapterSubmit').on('click', () => {
       consistent.isbn = $('#isbnInput').val();
       consistent.author = $('#authorInput').val();
       consistent.title = $('#bookTitle').val();
@@ -112,12 +109,6 @@ $(() => {
       consistent.bannerImgLink = $('#bannerImg').val();
       consistent.bannerHrefLink = $('#bannerHref').val();
       consistent.bannerDescription = $('#bannerDesc').val();
-    });
-    // sets destination directory property
-    $('#downloadTo').on('change', function () {
-      const downloadDir = $(this).val();
-      uploadController.destinationDirectory = downloadDir;
-      uploadController.submitEnable();
     });
     // Calls enable function after data entry in title, author, and ISBN field
     $('.required-form').on('keyup', function () {
