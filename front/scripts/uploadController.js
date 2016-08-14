@@ -160,9 +160,19 @@ $(() => {
       fileName = uploadController.destinationDirectory + '/' + fileName;
 
       // the true build compiling begins here:
-      for (var props in currentTemplate) {
+      if (idx < 5) {
+        for (var props in currentTemplate) {
         // since adding a name property for the new file only, do not include that in the html:
-        if(props !== 'name') html += currentTemplate[props];
+          if(props !== 'name' && props !== 'webTrackHeader' && props !== 'webTrackFooter') {
+            html += currentTemplate[props];
+          }
+        }
+      } else {
+        for (var props in currentTemplate) {
+          if(props !== 'name') {
+            html += currentTemplate[props];
+          }
+        }
       }
       // clean up the structure of the html so it isn't all on one line:
       tidy(html, function(err, htmlTidy) {
