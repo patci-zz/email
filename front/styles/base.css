@@ -49,6 +49,7 @@ form .form-directory {
 
 input.audio-file {
   width: 300px;
+  margin-bottom: 17px;
 }
 
 .btn {
