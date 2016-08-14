@@ -1,6 +1,3 @@
-* {
-  text-align: center;
-}
 
 body {
   background-color: #FFFFFF;
@@ -136,4 +133,8 @@ label.last-label {
 
 .col-sm-5 {
   padding-left: 5px;
+}
+
+.form-group, .topHeader {
+  text-align: center;
 }
