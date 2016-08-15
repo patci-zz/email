@@ -1,4 +1,4 @@
-$(() => {
+$(function () {
   const tidy = require('htmltidy2').tidy,
       fs = require('fs');
   const uploadController = {};
@@ -76,15 +76,23 @@ $(() => {
   // enables the submit button if all requird fields are populated
   uploadController.submitEnable = function () {
     // checks author title and isbn fields
+    const formChecker = function (el) {
+      return ($(el).val() !== '');   
+    };
+
+    const fileChecker = function (el) {
+      return uploadController.docxVerifier($(el).val());
+    };
+
     const requiredForm = function () {
       const formArray = $('.required-form').toArray()
-      .every((el) => $(el).val() !== '');
+      .every(formChecker);
       return (formArray);
     };
     // checks docx fields
     const requiredDocx = function () {
       const docxArray = $('.form-file').toArray()
-      .every((el) => uploadController.docxVerifier($(el).val()));
+      .every(fileChecker);
       return (docxArray);
     };
     // enables submit button
@@ -95,7 +103,7 @@ $(() => {
     }
   };
   // Trigger initial file read on submit.
-  $(document).ready(() => {
+  $(document).ready(function() {
     $('#downloadTo').on('change', function () {
       const downloadDir = $(this).val();
       $('.last-label').text('Processing ...');
@@ -169,7 +177,7 @@ $(() => {
       // clean up the structure of the html so it isn't all on one line:
       tidy(html, function(err, htmlTidy) {
         if (err) throw err;
-        fs.writeFile(fileName, htmlTidy, () => {
+        fs.writeFile(fileName, htmlTidy, function () {
           if (err) throw err;
           $('.last-label').text('Success!');
         });
