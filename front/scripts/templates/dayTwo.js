@@ -1,3 +1,4 @@
+"use strict";
 function dayTwoCompile(consistent, dynamic) {
   const learnMoreAnchor = "<a href='http://www.epicreads.com/books/" + consistent.title.replace(/\s/g, '-').toLowerCase() + '/' + consistent.isbn + "/' name='www_epicreads_com_books_" + consistent.title.replace(/\s/g, '_').toLowerCase().slice(0, 11) + "' style='font-family:  Arial, Helvetica, sans-serif; font-size:16px; color:#ee2765; text-decoration: none; font-weight:bold; line-height: 45px; width: 100%; display: inline-block;' target='_blank' xt='SPCLICK'>LEARN MORE</a>";
   return {

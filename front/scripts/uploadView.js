@@ -1,4 +1,5 @@
-$(() => {
+$(function () {
+  "use strict";
   const uploadView = {};
   // logic for form labels when a user changes files
   uploadView.updateLabel = function () {

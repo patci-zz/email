@@ -1,5 +1,5 @@
 // The objects to be populated:
-
+"use strict";
 const consistent = {
   title: 'Sample Title',
   author: 'Rick Patci',
