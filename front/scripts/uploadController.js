@@ -1,4 +1,5 @@
 $(function () {
+  "use strict";
   const tidy = require('htmltidy2').tidy,
       fs = require('fs');
   const uploadController = {};
@@ -77,7 +78,7 @@ $(function () {
   uploadController.submitEnable = function () {
     // checks author title and isbn fields
     const formChecker = function (el) {
-      return ($(el).val() !== '');   
+      return ($(el).val() !== '');
     };
 
     const fileChecker = function (el) {
