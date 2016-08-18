@@ -16,7 +16,6 @@ function dayFiveCompile(consistent, dynamic) {
     html7: "</span><br>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
     html8: "<span style='font-size: 18px;'>" + learnMoreAnchor + "</span></td></tr></tbody></table>",
     html9: "<span style='font-size: 18px;'> </span></td></tr></tbody></table></td></tr></tbody></table><table align='center' border='0' cellpadding='0' cellspacing='0' width='600'><tbody><tr><td style='padding-top:20px;'><table align='center' border='0' cellpadding='0' cellspacing='0' width='560'><tbody><tr><td style='font-family: Arial, Helvetica, sans-serif; font-size:22px; line-height: 28px;' valign='top' width='560'>",
-    html10: "<p align='center'><strong>" + dynamic.chapterFive + '</strong></p>&nbsp;',
     html11: dynamic.chapterBodyFive,
     html12: "<div align='center'><span style='font-size:13px;'>",
     html13: "<em>Copyright &copy; " + consistent.copyrightYear +  " by " + consistent.copyrightHolder + "</em>",
