@@ -9,7 +9,7 @@ function dayFiveCompile(consistent, dynamic) {
     html3: "<img alt='" + consistent.title + "' border='0' class='img-max' name='Cont_0' src='https://i.harperapps.com/covers/" + consistent.isbn + "/y648.png' style='display:block; min-width: 100px;' width='200' />",
     html4: "</td><td style='font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; padding-left: 30px;' valign='top' width='360'>",
     html5: "<span style='font-size: 18px;'><strong>Ready for our next read?</strong><br><br>" + consistent.intro + '<br>',
-    html6: dynamic.audioChapFiveLink ? "<a href='" + dynamic.audioChapFiveLink + "'>Listen</a> to the latest chapter now or start reading below." : "",
+    html6: dynamic.audioChapFiveLink ? "<a href='" + dynamic.audioChapFiveLink + "'>Listen</a> to the latest chapter now or start reading below.<br><br>" : "",
     html6_1: "Missed a chapter? No Problem! Read ",
     html6_2: webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch1_webtrack.html'>Chapter 1</a>" + ', ' + webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch2_webtrack.html'>Chapter 2</a>" + ', ' + webTrackBaseUrl,
     html6_3: consistent.title.replace(/\s/g, '').toLowerCase() + "_ch3_webtrack.html'>Chapter 3</a>" + ', or ' + webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch4_webtrack.html'>Chapter 4</a>" + " now.",
