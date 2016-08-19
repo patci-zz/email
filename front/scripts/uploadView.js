@@ -10,6 +10,9 @@ $(function () {
       $(this).prev().text(`Upload: Chapter ${chapterNumber} DOCX`);
     }
   };
+$('body').on('click', function() {
+  $('.last-label').html('Save');
+});
 
   $('.form-file').on('change', uploadView.updateLabel);
   $('.form-directory').on('change', uploadView.updateLabel);
