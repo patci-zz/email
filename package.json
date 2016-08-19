@@ -9,9 +9,10 @@
   },
   "window": {
     "title": "HTML Email",
+    "icon": "front/vendor/epic-reads.ico",
     "min_height": 400,
     "min_width": 500,
-    "toolbar": true
+    "toolbar": false
   },
   "main": "front/index.html",
   "author": "rpatci@gmail.com",
