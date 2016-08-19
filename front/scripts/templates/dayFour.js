@@ -54,6 +54,7 @@ function dayFourCompile(consistent, dynamic) {
 }
 
 function dayFourWebCompile(consistent, dynamic) {
+  const webTrackBaseUrl = "<a href='http://www.epicreads.com/first5/first5_";
   return {
     name: 'ch4_webtrack',
     html1: "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'><head><link rel='shortcut icon' href='http://harpercollinschildrens.com/images/favicon.ico'><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta name='format-detection' content='telephone=no'><!--[if !mso]><!--><meta http-equiv='X-UA-Compatible' content='IE=edge'><!--<![endif]--><!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]--><title>FIRST5 | Epic Reads</title><style type='text/css'>h1, h2 {text-align: center}#outlook a {padding: 0;}body {width: 100% !important;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;}table, td, {mso-table-lspace:0pt;mso-table-rspace:0pt;}.appleBody a {color: #68440a;text-decoration: none;}.appleFooter a {color: #999999;text-decoration: none;}div, p, a, li, td {-webkit-text-size-adjust: none;-ms-text-size-adjust: none;}img {outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;}a img {border: none;}.ReadMsgBody {width: 100%;}.ExternalClass {width: 100%;}.ExternalClass * {line-height: 110%;}p {Margin: 0;padding-bottom: 10px;}</style></head>",
@@ -63,7 +64,10 @@ function dayFourWebCompile(consistent, dynamic) {
     html4: "</td><td style='font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; padding-left: 30px;' valign='top' width='360'>",
     html5: "<span style='font-size: 18px;'><strong>Ready for our next read?</strong><br><br>" + consistent.intro + "<br>",
     html6: dynamic.audioChapFourLink ? "<a href='" + dynamic.audioChapFourLink + "'>Listen</a> to the latest chapter now or start reading below.<br><br>" : "",
-    html7: "</span>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
+    html6_1: "Missed a chapter? No Problem! Read ",
+    html6_2: webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch1_webtrack.html'>Chapter 1</a>" + ', ' + webTrackBaseUrl + consistent.title.replace(/\s/g, '').toLowerCase() + "_ch2_webtrack.html'>Chapter 2</a>" + ', or ' + webTrackBaseUrl,
+    html6_3: consistent.title.replace(/\s/g, '').toLowerCase() + "_ch3_webtrack.html'>Chapter 3</a>" + " now.",
+    html7: "</span><br>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
     html8: "<span style='font-size: 18px;'><a href='" + consistent.isbn + "/' name='" + consistent.title + "' style='font-family:  Arial, Helvetica, sans-serif; font-size:16px; color:#ee2765; text-decoration: none; font-weight:bold; line-height: 45px; width: 100%; display: inline-block;' target='_blank' xt='SPCLICK'>LEARN MORE</a></span></td></tr></tbody></table>",
     html9: "<span style='font-size: 18px;'> </span></td></tr></tbody></table></td></tr></tbody></table><table align='center' border='0' cellpadding='0' cellspacing='0' width='600'><tbody><tr><td style='padding-top:20px;'><table align='center' border='0' cellpadding='0' cellspacing='0' width='560'><tbody><tr><td style='font-family: Arial, Helvetica, sans-serif; font-size:22px; line-height: 28px;' valign='top' width='560'>",
     html11: dynamic.chapterBodyFour,
