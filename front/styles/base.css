@@ -75,10 +75,9 @@ input.audio-file {
 }
 
 #emailIntroInput {
-  height: 200px;
-  max-height: 200px;
+  height: 250px;
   width: 440px;
-  max-width: 455px;
+  resize: none;
 }
 
 input#copyright-year,  input#copyright-holder {
