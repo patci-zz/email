@@ -8,10 +8,11 @@
     "lint": "eslint back/*.js front/scripts/*.js"
   },
   "window": {
+    "icon": "front/vendor/img/header.jpg",
     "title": "HTML Email",
     "min_height": 400,
     "min_width": 500,
-    "toolbar": true
+    "toolbar": false
   },
   "main": "front/index.html",
   "author": "rpatci@gmail.com",
