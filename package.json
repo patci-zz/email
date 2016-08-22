@@ -8,7 +8,7 @@
     "lint": "eslint back/*.js front/scripts/*.js"
   },
   "window": {
-    "icon": "front/vendor/img/header.png",
+    "icon": "front/vendor/img/header.jpg",
     "title": "HTML Email",
     "min_height": 400,
     "min_width": 500,
