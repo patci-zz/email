@@ -8,7 +8,7 @@ function dayOneCompile(consistent, dynamic) {
     html3: "<img alt='" + consistent.title + "' border='0' class='img-max' name='Cont_0' src='https://i.harperapps.com/covers/" + consistent.isbn + "/y648.png' style='display:block; min-width: 100px;' width='200' />",
     html4: "</td><td style='font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; padding-left: 30px;' valign='top' width='360'>",
     html5: "<span style='font-size: 18px;'><strong>Ready for our next read?</strong><br><br>" + consistent.intro + "<br>",
-    html6: dynamic.audioChapOneLink ? "<a href='" + dynamic.audioChapOneLink + "'>Listen</a> to the latest chapter now or start reading below.<br>" : "",
+    html6: dynamic.audioChapOneLink ? "<a href='" + dynamic.audioChapOneLink + "' target='_blank'>Listen</a> to the latest chapter now or start reading below.<br>" : "",
     html7: "</span>&nbsp;<table border='0' cellpadding='0' cellspacing='0'><tbody><tr><td align='center' bgcolor='#000000' height='45' style='color: #ffffff; border-bottom-width: 3px; border-bottom-color:#ffffff; border-bottom-style:solid;' width='330'>",
     html8: "<span style='font-size: 18px;'>" + learnMoreAnchor + "</span></td></tr></tbody></table>",
     html9: "<span style='font-size: 18px;'> </span></td></tr></tbody></table></td></tr></tbody></table><table align='center' border='0' cellpadding='0' cellspacing='0' width='600'><tbody><tr><td style='padding-top:20px;'><table align='center' border='0' cellpadding='0' cellspacing='0' width='560'><tbody><tr><td style='font-family: Arial, Helvetica, sans-serif; font-size:22px; line-height: 28px;' valign='top' width='560'>",
