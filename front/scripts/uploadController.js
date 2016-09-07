@@ -32,7 +32,6 @@ $(function () {
     dynamic[body] = result.value;
     dynamic[audio] = audioLinkSanitize($(`#chapter${int}AudioBook`).val());
 
-
     if (parseInt(uploadController.dayInteger, 10) < 5) {
       const nextFile = parseInt(uploadController.dayInteger, 10) + 1;
       uploadController.readFileInput($(`#chapter${nextFile}FileInput`), uploadController.converter);
@@ -134,13 +133,9 @@ $(function () {
   });
 
   function audioLinkSanitize(url) {
-    if (url) {
-      if (url.startsWith('http')) return url;
-      url = 'https://' + url;
-      return url;
-    } else {
-      return url;
-    }
+    if (url.startsWith('http')) return url;
+    url = 'https://' + url;
+    return url;
   }
 
   function exposeBuildWrite() {
