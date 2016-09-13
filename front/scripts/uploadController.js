@@ -30,7 +30,7 @@ $(function () {
     const audio = `audioChap${num}Link`;
 
     dynamic[body] = result.value;
-    dynamic[audio] = audioLinkSanitize($(`#chapter${int}AudioBook`).val());
+    dynamic[audio] = audioLinkSanitize($(`#chapter${int}AudioBook`).val().trim());
 
     if (parseInt(uploadController.dayInteger, 10) < 5) {
       const nextFile = parseInt(uploadController.dayInteger, 10) + 1;
@@ -133,6 +133,7 @@ $(function () {
   });
 
   function audioLinkSanitize(url) {
+    if (!url) return;
     if (url.startsWith('http')) return url;
     url = 'https://' + url;
     return url;
